@@ -56,49 +56,114 @@ $tmp_1['ticket_head'] = '<div style="background-color: #f8f7f3;width: 949px;bord
         <td style="width: 90px;background-color: #1B2F62;">
           <img src="https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/pics/helpdesk.png" alt="helpdesk">
         </td>
-        <td style="vertical-align: top;">
-          <table style="border-collapse: collapse;width: 860px;height: 120px;">
+        <td style="vertical-align: top;width: 20px;"></td>
+        <td style="vertical-align: top;width: 816px;">';
+
+$tmp_1['lastfollowup'] = '
+##FOREACH LAST followups##
+          <table style="border-collapse: collapse;width: 816px;height: 120px;">
             <tr>
-              <td style="height: 15px;" colspan="3"></td>
-            </tr>';
+              <td style="height: 15px;"></td>
+            </tr>
+            <tr style="height: 30px;font-size: 16px;">
+              <th style="background-color: #5bc0de;color: #fff;width: 816px;">Voici le nouveau suivi</th>
+            </tr>
+            <tr>
+              <td style="background-color: #eaeaea;">
+                <table>
+                  <tr>
+                    <td colspan="2"><b>Par</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>
+                  </tr>
+                  <tr>
+                    <td style="height: 8px;" colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">##followup.description##</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 15px;" colspan="2"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 15px;"></td>
+            </tr>
+          </table>
+##ENDFOREACHfollowups##';
+
+$tmp_1['lasttask'] = '
+##FOREACH LAST tasks##
+          <table style="border-collapse: collapse;width: 816px;height: 120px;">
+            <tr>
+              <td style="height: 15px;"></td>
+            </tr>
+            <tr style="height: 30px;font-size: 16px;">
+              <th style="background-color: #5bc0de;color: #fff;width: 816px;">Voici la nouvelle tâche</th>
+            </tr>
+            <tr>
+              <td style="background-color: #eaeaea;">
+                <table>
+                  <tr>
+                    <td colspan="2"><b>Par</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>
+                  </tr>
+                  <tr>
+                    <td><b>##lang.task.time##</b></td>
+                    <td>##task.time##</td>
+                  </tr>
+                  <tr>
+                    <td><b>##lang.task.category##</b></td>
+                    <td>##task.category##</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 8px;" colspan="2"></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">##task.description##</td>
+                  </tr>
+                  <tr>
+                    <td style="height: 15px;" colspan="2"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="height: 15px;"></td>
+            </tr>
+          </table>
+##ENDFOREACHtasks##';
 
 $tmp_1['ticket_info'] = '
-          </table>
-          <table style="border-collapse: collapse;width: 836px;height: 100px;">
+          <table style="border-collapse: collapse;width: 816px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
-              <td style="width: 20px;"></td>
-              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 820px;">Informations du ticket</th>
+              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 816px;">Informations du ticket</th>
             </tr>
             <tr style="height: 20px;">
-              <td style="width: 20px;"></td>
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 20px;"></td>
-              <td style="width: 420px;background-color: #eaeaea;" colspan="2">
+              <td style="width: 408px;background-color: #eaeaea;" colspan="2">
                <b>##lang.ticket.assigntousers##:</b> ##ticket.assigntousers##
               </td>
-              <td style="background-color: #eaeaea;" colspan="2">
+              <td style="width: 408px;background-color: #eaeaea;" colspan="2">
                <b>##lang.ticket.assigntogroups##:</b> ##ticket.assigntogroups##
               </td>
             </tr>
             <tr style="height: 20px;">
-              <td style="width: 20px;"></td>
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 20px;"></td>
-              <td colspan="4">
-               <table style="border-collapse: collapse;width: 860px;">
+              <td style="background-color: #eaeaea;" colspan="4">
+               <table style="border-collapse: collapse;width: 816px;">
                  <tr>
-                   <td style="width: 350px;background-color: #eaeaea;">
+                   <td style="width: 283px;background-color: #eaeaea;">
                      <hr style="display: block;width: 330px;height: 2px;border: 0;border-top: 2px solid #ccc;margin: 10;padding: 10;"/>
                    </td>
                    <td style="width: 250px;text-align: center;background-color: #eaeaea;">
                      <b>##lang.ticket.type##</b>
                      ##ticket.type##
                    </td>
-                   <td style="width: 350px;background-color: #eaeaea;">
+                   <td style="width: 283px;background-color: #eaeaea;">
                      <hr style="display: block;width: 330px;height: 2px;border: 0;border-top: 2px solid #ccc;margin: 10;padding: 10;"/>
                    </td>
                  </tr>
@@ -106,26 +171,24 @@ $tmp_1['ticket_info'] = '
               </td>
             </tr>
             <tr>
-              <td style="width: 20px;"></td>
-              <td style="width:150px;background-color: #eaeaea;">
+              <td style="width: 150px;background-color: #eaeaea;">
                 <b>##lang.ticket.status##</b>
               </td>
-              <td style="width:280px;background-color: #eaeaea;">
+              <td style="width: 258px;background-color: #eaeaea;">
                  ##ticket.status##
               </td>
               <td style="width: 150px;background-color: #eaeaea;">
                 <b>##lang.ticket.category##</b>
               </td>
-              <td style="width: 480;background-color: #eaeaea;">
+              <td style="width: 258px;background-color: #eaeaea;">
                 ##ticket.category##
               </td>
             </tr>
             <tr>
-              <td style="width: 20px;"></td>
               <td style="width: 150px;background-color: #eaeaea;">
                 <b>##lang.ticket.priority## ##ticket.priority##</b>
               </td>
-              <td style="width: 280px;background-color: #eaeaea;">
+              <td style="width: 258px;background-color: #eaeaea;">
                 ##IFticket.priority=Très basse##
                 <span style="color:#01ca02;">&#9733;</span>
                 ##ENDIFticket.priority##
@@ -163,31 +226,33 @@ $tmp_1['ticket_info'] = '
               <td style="width: 150px;background-color: #eaeaea;">
                 <b>##lang.ticket.location##</b>
               </td>
-              <td style="width: 480px;background-color: #eaeaea;">
+              <td style="width: 258px;background-color: #eaeaea;">
                 ##ticket.location##
               </td>
             </tr>
-            <tr>
-              <td style="width: 20px;"></td>
-               <td style="width:150px;background-color: #eaeaea;">
-                 <b>##lang.ticket.title##</b>
-               </td>
-               <td style="background-color: #eaeaea;" colspan="3">
-                 ##ticket.title##
-               </td>
-             </tr>
+            <tr style="height: 8px;">
+              <td colspan="4" style="background-color: #eaeaea;"></td>
+            </tr>
              <tr>
-              <td style="width: 20px;"></td>
-               <td style="height: 30px;background-color: #eaeaea;">
+               <td style="width: 150px;background-color: #eaeaea;">
                  <b>##lang.ticket.creationdate##</b>
                </td>
                <td style="background-color: #eaeaea;" colspan="3">
                  ##ticket.creationdate##
                </td>
             </tr>
-
+            <tr style="height: 8px;">
+              <td colspan="4" style="background-color: #eaeaea;"></td>
+            </tr>
+            <tr>
+               <td style="width: 150px;background-color: #eaeaea;">
+                 <b>##lang.ticket.title##</b>
+               </td>
+               <td style="width: 666px;background-color: #eaeaea;" colspan="3">
+                 ##ticket.title##
+               </td>
+             </tr>
             <tr style="height: 140px;">
-              <td style="width: 20px;"></td>
               <td style="width: 150px;vertical-align: top;background-color: #eaeaea;">
                 <b>##lang.ticket.description##</b>
               </td>
@@ -197,11 +262,10 @@ $tmp_1['ticket_info'] = '
             </tr>
 
             <tr>
-              <td style="width: 20px;"></td>
               <td style="width: 150px;background-color: #eaeaea;">
                 <b>##lang.ticket.item.name##</b>
               </td>
-              <td style="width: 280px;background-color: #eaeaea;">
+              <td style="width: 258px;background-color: #eaeaea;">
                 ##FOREACHitems##
                   ##IFticket.itemtype##
                     ##ticket.itemtype## - ##ticket.item.name##
@@ -211,121 +275,50 @@ $tmp_1['ticket_info'] = '
                   ##ENDIFticket.itemtype##
                 ##ENDFOREACHitems##
               </td>
-              <td style="background-color: #eaeaea;"></td>
-              <td style="background-color: #eaeaea;"></td>
+              <td style="width: 408px;background-color: #eaeaea;" colspan="2"></td>
             </tr>
           </table>
           <br/>
           ';
 
-$tmp_1['lastfollowup'] = '
-##FOREACH LAST followups##
-            <tr style="height: 30px;font-size: 16px;">
-              <td style="width: 20px;"></td>
-              <th style="background-color: #5bc0de;color: #fff;width: 820px;">Voici le nouveau suivi :</th>
-              <td style="width: 20px;"></td>
-            </tr>
-            <tr>
-              <td style="width: 20px;"></td>
-              <td style="background-color: #eaeaea;">
-                <table>
-                  <tr>
-                    <td colspan="2"><b>Par</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>
-                  </tr>
-                  <tr>
-                    <td style="height: 15px;" colspan="2"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">##followup.description##</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 15px;" colspan="2"></td>
-                  </tr>
-                </table>
-              </td>
-              <td style="width: 20px;"></td>
-            </tr>
-            <tr>
-              <td style="height: 15px;" colspan="3"></td>
-            </tr>
-##ENDFOREACHfollowups##';
-
-
-$tmp_1['lasttask'] = '
-##FOREACH LAST tasks##
-            <tr style="height: 30px;font-size: 16px;">
-              <td style="width: 20px;"></td>
-              <th style="background-color: #5bc0de;color: #fff;width: 820px;">Voici la nouvelle tâche :</th>
-              <td style="width: 20px;"></td>
-            </tr>
-            <tr>
-              <td style="width: 20px;"></td>
-              <td style="background-color: #eaeaea;">
-                <table>
-                  <tr>
-                    <td colspan="2"><b>Par</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>
-                  </tr>
-                  <tr>
-                    <td><b>##lang.task.time##</b></td>
-                    <td>##task.time##</td>
-                  </tr>
-                  <tr>
-                    <td><b>##lang.task.category##</b></td>
-                    <td>##task.category##</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 15px;" colspan="2"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2">##task.description##</td>
-                  </tr>
-                  <tr>
-                    <td style="height: 15px;" colspan="2"></td>
-                  </tr>
-                </table>
-              </td>
-              <td style="width: 20px;"></td>
-            </tr>
-            <tr>
-              <td style="height: 15px;" colspan="3"></td>
-            </tr>
-##ENDFOREACHtasks##';
-
 $tmp_1['followups+tasks'] = '
-          <table style="border-collapse: collapse;width: 860px;height: 120px;">
+          <table style="border-collapse: collapse;width: 816px;height: 120px;">
             <tr>
-              <td style="height: 20px;" colspan="3"></td>
+              <td style="height: 20px;"></td>
             </tr>
             <tr>
-              <td style="width: 20px;"></td>
-              <td style="width: 820px;">
-                <table>
+              <td style="width: 816px;">
+                <table style="width: 816px;">
                   <tr style="height: 30px;font-size: 16px;">
-                    <th style="background-color: #5bc0de;color: #fff;width: 400px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>
-                    <th style="background-color: #5bc0de;color: #fff;width: 400px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>
+                    <th style="background-color: #5bc0de;color: #fff;width: 408px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>
+                    <th style="background-color: #5bc0de;color: #fff;width: 408px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>
                   </tr>
                   <tr>
                     <td>
                       <table>
 ##FOREACHfollowups##
                         <tr>
-                          <td>
+                          <td style="background-color: #eaeaea;width: 408px;">
                             <table>
                               <tr>
                                 <td colspan="2"><b>Par</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"></td>
+                                <td style="height: 8px;" colspan="2"></td>
                               </tr>
                               <tr>
                                 <td colspan="2">##followup.description##</td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"><hr style="display: block; width: 400px; height: 1px; border: 0; border-top: 1px solid #949494; margin: 10; padding: 10;"/></td>
+                                <td style="height: 15px;" colspan="2"></td>
                               </tr>
                             </table>
                           </td>
                         </tr>
+                        <tr>
+                          <td style="height: 15px;"></td>
+                        </tr>
+
 ##ENDFOREACHfollowups##
                       </table>
                     </td>
@@ -333,7 +326,7 @@ $tmp_1['followups+tasks'] = '
                       <table>
 ##FOREACHtasks##
                         <tr>
-                          <td>
+                          <td style="background-color: #eaeaea;width: 408px;">
                             <table>
                               <tr>
                                 <td colspan="2"><b>Par</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>
@@ -347,16 +340,19 @@ $tmp_1['followups+tasks'] = '
                                 <td>##task.category##</td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"></td>
+                                <td style="height: 8px;" colspan="2"></td>
                               </tr>
                               <tr>
                                 <td colspan="2">##task.description##</td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"><hr style="display: block; width: 400px; height: 1px; border: 0; border-top: 1px solid #949494; margin: 10; padding: 10;"/></td>
+                                <td style="height: 15px;" colspan="2"></td>
                               </tr>
                             </table>
                           </td>
+                        </tr>
+                        <tr>
+                          <td style="height: 15px;"></td>
                         </tr>
 ##ENDFOREACHtasks##
                       </table>
@@ -364,20 +360,20 @@ $tmp_1['followups+tasks'] = '
                   </tr>
                 </table>
               </td>
-              <td style="width: 20px;"></td>
             </tr>
+          </table>
 ';
 
 $tmp_1['glpi_link'] = '
+          <table style="border-collapse: collapse;width: 816px;height: 120px;">
             <tr>
-              <td style="width: 20px;"></td>
               <td style="text-align: center;">
                See this ticket directly in <a href="##ticket.url##" target="_blank">Glpi</a>
               </td>
-              <td style="width: 20px;"></td>
             </tr>
           </table>
         </td>
+        <td style="vertical-align: top;width: 20px;"></td>
       </tr>
     </table>';
 
