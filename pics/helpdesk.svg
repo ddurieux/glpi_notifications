@@ -14,7 +14,7 @@
    viewBox="0 0 90.000001 600.00001"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
    sodipodi:docname="helpdesk.svg"
    inkscape:export-filename="/Donnees/developpement/sources/glpi/glpi_notifications/pics/helpdesk.png"
    inkscape:export-xdpi="90"
@@ -30,14 +30,14 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.76"
      inkscape:cx="72.158725"
-     inkscape:cy="301.74615"
+     inkscape:cy="303.06194"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1362"
-     inkscape:window-height="729"
+     inkscape:window-width="1916"
+     inkscape:window-height="1041"
      inkscape:window-x="0"
-     inkscape:window-y="1098"
+     inkscape:window-y="18"
      inkscape:window-maximized="0"
      units="px" />
   <metadata
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -69,16 +69,97 @@
     <flowRoot
        xml:space="preserve"
        id="flowRoot4138"
-       style="font-style:normal;font-weight:normal;font-size:13px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="matrix(0,-1,1,0,-837.17192,901.033)"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="rotate(-90,31.93054,869.10246)"
        inkscape:export-xdpi="120"
        inkscape:export-ydpi="120"><flowRegion
-         id="flowRegion4140"><rect
+         id="flowRegion4140"
+         style="font-family:sans-serif"><rect
            id="rect4142"
            width="674.28571"
            height="280"
            x="-60"
-           y="835.21936" /></flowRegion><flowPara
+           y="835.21936"
+           style="font-family:sans-serif" /></flowRegion><flowPara
          id="flowPara4144"
-         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:75px;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';fill:#ffffff;fill-opacity:1">HELPDESK</flowPara></flowRoot>  </g>
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:75px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';fill:#ffffff;fill-opacity:1">HELPDESK</flowPara></flowRoot>    <rect
+       style="opacity:1;fill:#1b2f62;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4136-3"
+       width="90"
+       height="600"
+       x="185"
+       y="453.15161"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4138-7"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="rotate(-90,79.983145,727.10246)"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><flowRegion
+         id="flowRegion4140-8"
+         style="font-family:sans-serif"><rect
+           id="rect4142-5"
+           width="674.28571"
+           height="280"
+           x="-60"
+           y="835.21936"
+           style="font-family:sans-serif" /></flowRegion><flowPara
+         id="flowPara4144-2"
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.66666794px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';fill:#ffffff;fill-opacity:1">HELPDESK</flowPara></flowRoot>    <rect
+       style="opacity:1;fill:#1b2f62;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4136-37"
+       width="90"
+       height="600"
+       x="407.76315"
+       y="452.80957"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4138-8"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="rotate(-90,301.82527,725.97092)"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><flowRegion
+         id="flowRegion4140-80"
+         style="font-family:sans-serif;text-align:center;text-anchor:middle"><rect
+           id="rect4142-9"
+           width="674.28571"
+           height="280"
+           x="-60"
+           y="835.21936"
+           style="font-family:sans-serif;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4144-26"
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.66666794px;line-height:0.89999998;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">ASSISTANCE</flowPara><flowPara
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:50.66666794px;line-height:0.89999998;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+         id="flowPara984">INFORMATIQUE</flowPara></flowRoot>    <rect
+       style="opacity:1;fill:#1b2f62;fill-opacity:1;stroke:none;stroke-width:10;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4136-3-3"
+       width="90"
+       height="600"
+       x="592.76318"
+       y="453.59897"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4138-7-3"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="rotate(-90,394.0884,633.44456)"
+       inkscape:export-xdpi="120"
+       inkscape:export-ydpi="120"><flowRegion
+         id="flowRegion4140-8-8"
+         style="font-family:sans-serif;text-align:center;text-anchor:middle"><rect
+           id="rect4142-5-6"
+           width="674.28571"
+           height="280"
+           x="-60"
+           y="835.21936"
+           style="font-family:sans-serif;text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara4144-2-7"
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1">ASSISTANCE</flowPara><flowPara
+         style="font-style:oblique;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:32px;line-height:1.25;font-family:Helvetica;-inkscape-font-specification:'Helvetica Bold Oblique';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1"
+         id="flowPara986">INFORMSATIQUE</flowPara></flowRoot>  </g>
 </svg>
