@@ -48,7 +48,26 @@
  * @return boolean
  */
 function plugin_notifications_install() {
-   return TRUE;
+   global $DB;
+
+   if (!$DB->tableExists('glpi_plugin_notifications_notifications')) {
+      $query = "CREATE TABLE `glpi_plugin_notifications_notifications` (
+         `id` int(11) NOT NULL AUTO_INCREMENT,
+         `name` varchar(255) DEFAULT NULL,
+         `entities_id` int(11) NOT NULL DEFAULT '0',
+         `is_recursive` tinyint(1) NOT NULL DEFAULT '1',
+         `last_generation` datetime DEFAULT NULL,
+         `options` text DEFAULT NULL,
+         `itemtype` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+         `event` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+         `comment` text COLLATE utf8_unicode_ci,
+         `date_mod` datetime DEFAULT NULL,
+         `date_creation` datetime DEFAULT NULL,
+         PRIMARY KEY (`id`)
+      ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+      $DB->query($query);
+   }
+   return true;
 }
 
 
@@ -59,4 +78,9 @@ function plugin_notifications_install() {
  * @return boolean
  */
 function plugin_notifications_uninstall() {
+   global $DB;
+   
+   $query = "DROP TABLE `glpi_plugin_notifications_notifications`";
+   $DB->query($query);
+   return true;
 }

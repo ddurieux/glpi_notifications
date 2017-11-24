@@ -41,7 +41,7 @@
  *
  */
 
-define ("PLUGIN_NOTIFICATIONS_VERSION", "9.1+1.0");
+define ("PLUGIN_NOTIFICATIONS_VERSION", "9.2+1.0");
 
 include_once(GLPI_ROOT."/inc/includes.php");
 
@@ -66,6 +66,7 @@ function plugin_init_notifications() {
    }
 
    if ($Plugin->isActivated('notifications')) { // check if plugin is active
+      Plugin::registerClass('PluginNotificationsNotification');
 
    }
 }
