@@ -315,6 +315,8 @@ class PluginNotificationsNotification extends CommonDBTM {
 
 
    function notification_blue($type, $options) {
+      global $CFG_GLPI
+
       $blocks = [];
 
       $blocks[] = '<div style="font-family: Helvetica;">
