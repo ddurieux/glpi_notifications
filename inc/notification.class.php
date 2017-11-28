@@ -315,7 +315,7 @@ class PluginNotificationsNotification extends CommonDBTM {
 
 
    function notification_blue($type, $options) {
-      global $CFG_GLPI
+      global $CFG_GLPI;
 
       $blocks = [];
 
