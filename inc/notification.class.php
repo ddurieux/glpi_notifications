@@ -373,7 +373,12 @@ class PluginNotificationsNotification extends CommonDBTM {
         <td style="width: 90px;background-color: #1B2F62;vertical-align: top;">';
 
       if ($options['left_image'] == 'M' or $options['left_image'] == 'XL') {
-         $blocks[] = '<img src="https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/pics/helpdesk_'.$options['left_image'].'.png" alt="helpdesk">';
+         $image_name = "helpdesk";
+         if ($CFG_GLPI['language'] == 'fr_FR') {
+            $image_name = "assistance_informatique";
+         }
+
+         $blocks[] = '<img src="https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/pics/'.$image_name.'_'.$options['left_image'].'.png" alt="helpdesk">';
       }
       $blocks[] = '</td>
         <td style="vertical-align: top;width: 20px;"></td>
@@ -473,17 +478,25 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks[] = '
           <table style="border-collapse: collapse;width: 816px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
-              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 816px;">Informations du ticket</th>
+              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 816px;">Informations du ticket ##ticket.id##</th>
             </tr>
             <tr style="height: 20px;">
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 408px;background-color: #eaeaea;" colspan="2">
-               <b>##lang.ticket.assigntousers##:</b> ##ticket.assigntousers##
+              <td style="width: 408px;background-color: #eaeaea;" colspan="2">';
+      if ($options['tech_person']) {
+         $blocks[] = '
+               <b>##lang.ticket.assigntousers##:</b> ##ticket.assigntousers##';
+      }
+      $blocks[] = '
               </td>
-              <td style="width: 408px;background-color: #eaeaea;" colspan="2">
-               <b>##lang.ticket.assigntogroups##:</b> ##ticket.assigntogroups##
+              <td style="width: 408px;background-color: #eaeaea;" colspan="2">';
+      if ($options['tech_group']) {
+         $blocks[] = '
+               <b>##lang.ticket.assigntogroups##:</b> ##ticket.assigntogroups##';
+      }
+      $blocks[] = '
               </td>
             </tr>
 
