@@ -264,6 +264,10 @@ class PluginNotificationsNotification extends CommonDBTM {
           'url_link' => [
               'name' => __('URL link to GLPI'),
               'type' => 'boolean'
+          ],
+          'Solution' => [
+              'name' => _n('Solution', 'Solutions', 1),
+              'type' => 'boolean'
           ]
       ];
    }
@@ -653,10 +657,25 @@ class PluginNotificationsNotification extends CommonDBTM {
          $blocks[] = '
             <tr style="height: 140px;">
               <td style="width: 150px;vertical-align: top;background-color: #eaeaea;">
-                <b>Description</b>
+                <b>##lang.followup.description##</b>
               </td>
               <td style="vertical-align: top;background-color: #eaeaea;" colspan="3">
-                 ##lang.followup.description##
+                 ##ticket.description##
+              </td>
+            </tr>';
+      }
+      if ($options['solution']) {
+         $blocks[] = '
+            <tr style="height: 140px;">
+              <td style="width: 150px;vertical-align: top;background-color: #eaeaea;">
+              ##IFticket.storestatus=5##
+                <b>##lang.ticket.solution.description##</b>
+              ##ENDIFticket.storestatus##
+              </td>
+              <td style="vertical-align: top;background-color: #eaeaea;" colspan="3">
+              ##IFticket.storestatus=5##
+                 ##ticket.solution.description##
+              ##ENDIFticket.storestatus##
               </td>
             </tr>';
       }
