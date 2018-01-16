@@ -68,6 +68,9 @@ function plugin_init_notifications() {
    if ($Plugin->isActivated('notifications')) { // check if plugin is active
       Plugin::registerClass('PluginNotificationsNotification');
 
+      if (Session::haveRight('config', READ)) {
+         $PLUGIN_HOOKS["menu_toadd"]['notifications']['config'] = 'PluginNotificationsNotification';
+      }
    }
 }
 

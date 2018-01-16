@@ -47,7 +47,7 @@ if (!defined('GLPI_ROOT')) {
 
 class PluginNotificationsNotification extends CommonDBTM {
 
-   static $rightname = 'notification';
+   static $rightname = 'config';
 
 
    /**
@@ -56,7 +56,7 @@ class PluginNotificationsNotification extends CommonDBTM {
     * @param $nb  integer  number of item in the type (default 0)
    **/
    static function getTypeName($nb = 0) {
-      return _n('Notification', 'Notifications', $nb);
+      return __('Notifications generation', 'notifications');
    }
 
 
@@ -649,13 +649,14 @@ class PluginNotificationsNotification extends CommonDBTM {
              </tr>';
       }
       if ($options['description']) {
+         // we use ##lang.followup.description## because better translation than ##lang.ticket.description##
          $blocks[] = '
             <tr style="height: 140px;">
               <td style="width: 150px;vertical-align: top;background-color: #eaeaea;">
-                <b>##lang.ticket.description##</b>
+                <b>Description</b>
               </td>
               <td style="vertical-align: top;background-color: #eaeaea;" colspan="3">
-                 ##ticket.description##
+                 ##lang.followup.description##
               </td>
             </tr>';
       }
@@ -911,5 +912,30 @@ class PluginNotificationsNotification extends CommonDBTM {
       } else {
          return false;
       }
+   }
+
+
+   static function getMenuContent() {
+
+      if (!Session::haveRight('config', READ)) {
+         return;
+      }
+
+      $menu = [];
+      $menu['title'] = self::getMenuName();
+      $menu['page']  = "/plugins/notifications/front/notification.php";
+
+      $itemtypes = ['PluginNotificationsNotification' => 'notifications'];
+
+      foreach ($itemtypes as $itemtype => $option) {
+         $menu['options'][$option]['title']           = $itemtype::getTypeName(2);
+         $menu['options'][$option]['page']            = $itemtype::getSearchURL(false);
+         $menu['options'][$option]['links']['search'] = $itemtype::getSearchURL(false);
+         if ($itemtype::canCreate()) {
+            $menu['options'][$option]['links']['add'] = $itemtype::getFormURL(false);
+         }
+
+      }
+      return $menu;
    }
 }

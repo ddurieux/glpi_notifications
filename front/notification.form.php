@@ -29,8 +29,8 @@ if (isset($_POST["add"])) {
 }
 
 
-Html::header('Notifications', $_SERVER["PHP_SELF"], "admin",
-             "", "notifications");
+Html::header('Notifications', $_SERVER["PHP_SELF"], "config",
+             "PluginNotificationsNotification", "notifications");
 
 
 if (!isset($_GET["id"])) {
