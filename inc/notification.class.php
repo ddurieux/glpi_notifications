@@ -343,7 +343,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       }
       if ($options['observer_person']) {
          $blocks[] = '<td style="font-size: 12px;">
-            ##lang.ticket.observerusers##
+            ##lang.ticket.observerusers##:
          </td>';
       }
 
