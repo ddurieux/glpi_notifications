@@ -823,9 +823,6 @@ class PluginNotificationsNotification extends CommonDBTM {
             <tr style="height: 30px;font-size: 16px;">
               <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Plus d informations sur ce ticket</th>
             </tr>
-            <tr style="height: 20px;">
-              <td colspan="4" style="background-color: #eaeaea;"></td>
-            </tr>
             <tr>
               <td style="width: 393px;background-color: #eaeaea;text-align: center;" colspan="2">
                Visualiser ce ticket dans l outil <a href="##ticket.url##" target="_blank">Glpi</a>
