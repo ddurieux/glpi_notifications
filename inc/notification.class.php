@@ -366,7 +366,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks[] = "  </table>\n";
       $blocks[] = '<table style="border-collapse: collapse;width: 950px;background-color: #1b2f62;">
     <tr style="height: 40px">
-      <td style="width: 90px;background-color: #1B2F62;"></td>
+      <td style="width: 119px;background-color: #1B2F62;"></td>
       <td style="background-color: #[[replacebgcolor]];text-align: center;font-size: 18px;color: white;border-top-left-radius: 6px;">
         <b>##ticket.action##</b>
       </td>
@@ -376,7 +376,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks[] = '<div style="background-color: #f8f7f3;width: 949px;border-right: 1px solid #ccc;border-collapse: collapse;">
     <table style="border-collapse: collapse;width: 950px;height: 100px;">
       <tr>
-        <td style="width: 90px;background-color: #1B2F62;vertical-align: top;">';
+        <td style="width: 120px;background-color: #1B2F62;vertical-align: top;">';
 
       if ($options['left_image'] == 'M' or $options['left_image'] == 'XL') {
          $image_name = "helpdesk";
@@ -388,17 +388,17 @@ class PluginNotificationsNotification extends CommonDBTM {
       }
       $blocks[] = '</td>
         <td style="vertical-align: top;width: 20px;"></td>
-        <td style="vertical-align: top;width: 816px;">';
+        <td style="vertical-align: top;width: 786px;">';
 
       if ($type == 'add_followup') {
          $blocks[] = '
 ##FOREACH LAST followups##
-          <table style="border-collapse: collapse;width: 816px;height: 120px;">
+          <table style="border-collapse: collapse;width: 786px;height: 120px;">
             <tr>
               <td style="height: 15px;"></td>
             </tr>
             <tr style="height: 30px;font-size: 16px;">
-              <th style="background-color: #5bc0de;color: #fff;width: 816px;">Le dernier suivi ajouté</th>
+              <th style="background-color: #5bc0de;color: #fff;width: 786px;">Le dernier suivi ajouté</th>
             </tr>
             <tr>
               <td style="background-color: #eaeaea;">
@@ -432,12 +432,12 @@ class PluginNotificationsNotification extends CommonDBTM {
       }
       if ($type == 'add_task') {
          $blocks[] = '##FOREACH LAST tasks##
-          <table style="border-collapse: collapse;width: 816px;height: 120px;">
+          <table style="border-collapse: collapse;width: 786px;height: 120px;">
             <tr>
               <td style="height: 15px;"></td>
             </tr>
             <tr style="height: 30px;font-size: 16px;">
-              <th style="background-color: #5bc0de;color: #fff;width: 816px;">La dernière tâche ajoutée</th>
+              <th style="background-color: #5bc0de;color: #fff;width: 786px;">La dernière tâche ajoutée</th>
             </tr>
             <tr>
               <td style="background-color: #eaeaea;">
@@ -482,22 +482,22 @@ class PluginNotificationsNotification extends CommonDBTM {
       }
 
       $blocks[] = '
-          <table style="border-collapse: collapse;width: 816px;height: 100px;">
+          <table style="border-collapse: collapse;width: 786px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
-              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 816px;">Informations du ticket ##ticket.id##</th>
+              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Informations du ticket ##ticket.id##</th>
             </tr>
             <tr style="height: 20px;">
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 408px;background-color: #eaeaea;" colspan="2">';
+              <td style="width: 393px;background-color: #eaeaea;" colspan="2">';
       if ($options['tech_person']) {
          $blocks[] = '
                <b>##lang.ticket.assigntousers##:</b> ##ticket.assigntousers##';
       }
       $blocks[] = '
               </td>
-              <td style="width: 408px;background-color: #eaeaea;" colspan="2">';
+              <td style="width: 393px;background-color: #eaeaea;" colspan="2">';
       if ($options['tech_group']) {
          $blocks[] = '
                <b>##lang.ticket.assigntogroups##:</b> ##ticket.assigntogroups##';
@@ -513,7 +513,7 @@ class PluginNotificationsNotification extends CommonDBTM {
               <td style="background-color: #eaeaea;" colspan="4">';
 
       if ($options['type']) {
-         $blocks[] = '<table style="border-collapse: collapse;width: 816px;">
+         $blocks[] = '<table style="border-collapse: collapse;width: 786px;">
                  <tr>
                    <td style="width: 283px;background-color: #eaeaea;">
                      <hr style="display: block;width: 330px;height: 2px;border: 0;border-top: 2px solid #ccc;margin: 10;padding: 10;"/>
@@ -695,7 +695,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                   ##ENDIFticket.itemtype##
                 ##ENDFOREACHitems##
               </td>
-              <td style="width: 408px;background-color: #eaeaea;" colspan="2"></td>
+              <td style="width: 393px;background-color: #eaeaea;" colspan="2"></td>
             </tr>';
       }
       $blocks[] = '
@@ -708,13 +708,13 @@ class PluginNotificationsNotification extends CommonDBTM {
             $size = 408;
          }
          $blocks[] = '
-          <table style="border-collapse: collapse;width: 816px;height: 120px;">
+          <table style="border-collapse: collapse;width: 786px;height: 120px;">
             <tr>
               <td style="height: 20px;"></td>
             </tr>
             <tr>
-              <td style="width: 816px;">
-                <table style="width: 816px;">
+              <td style="width: 786px;">
+                <table style="width: 786px;">
                   <tr style="height: 30px;font-size: 16px;">';
          if ($options['followups']) {
             $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>';
@@ -819,15 +819,15 @@ class PluginNotificationsNotification extends CommonDBTM {
           </table>';
       }
       if ($options['url_link']) {
-         $blocks[] = '<table style="border-collapse: collapse;width: 816px;height: 100px;">
+         $blocks[] = '<table style="border-collapse: collapse;width: 786px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
-              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 816px;">Plus d informations sur ce ticket</th>
+              <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Plus d informations sur ce ticket</th>
             </tr>
             <tr style="height: 20px;">
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 408px;background-color: #eaeaea;text-align: center;" colspan="2">
+              <td style="width: 393px;background-color: #eaeaea;text-align: center;" colspan="2">
                Visualiser ce ticket dans l outil <a href="##ticket.url##" target="_blank">Glpi</a>
               </td>
             </tr>
