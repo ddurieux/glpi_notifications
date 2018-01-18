@@ -89,7 +89,7 @@ function plugin_version_notifications() {
                 'author'         => '<a href="mailto:david@durieux.family">David DURIEUX</a>
                                     & <a href="mailto:dcs.glpi@dcsit-group.com">DCS company</a>',
                 'homepage'       =>'https://github.com/ddurieux/glpi_notifications',
-                'minGlpiVersion' => '9.1'
+                'minGlpiVersion' => '9.2'
    );
 }
 
