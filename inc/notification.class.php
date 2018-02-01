@@ -265,7 +265,7 @@ class PluginNotificationsNotification extends CommonDBTM {
               'name' => __('URL link to GLPI'),
               'type' => 'boolean'
           ],
-          'Solution' => [
+          'solution' => [
               'name' => _n('Solution', 'Solutions', 1),
               'type' => 'boolean'
           ]
