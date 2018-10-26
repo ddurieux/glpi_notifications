@@ -495,7 +495,7 @@ class PluginNotificationsNotification extends CommonDBTM {
 ##ENDFOREACHtasks##';
       }
 
-      $blocks[] = '
+      $blocks[] = '<br>
           <table style="border-collapse: collapse;width: 786px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
               <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Informations du ticket ##ticket.id##</th>
