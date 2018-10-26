@@ -338,12 +338,12 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks = [];
 
       $blocks[] = '<div style="font-family: Helvetica;">
-  <table style="border-collapse: collapse;width: 950px; border-top-left-radius: 6px;border-top-right-radius: 6px;background-color: #1B2F62;color: white;height: 80px;">
+  <table style="border-collapse: collapse;width: 950px; border-top-left-radius: 6px;border-top-right-radius: 6px;background-color: #1B2F62;color: #ffffff;height: 80px;">
     <tr style="height: 25px">
       <td style="width:160px" rowspan="2">
         <img alt="GLPi" title="Glpi" width="100" height="55" src="https://raw.githubusercontent.com/glpi-project/glpi/master/pics/fd_logo.png"/>
       </td>
-      <td style="width:350px;height: 30px;font-size: 24px;" rowspan="2">';
+      <td style="width:350px;height: 30px;font-size: 24px;color: #ffffff;" rowspan="2">';
 
       if ($options['entity']) {
          $blocks[] = "<b>##ticket.shortentity##</b>\n";
@@ -351,27 +351,27 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks[] = '      </td>';
 
       if ($options['request_person']) {
-         $blocks[] = '<td style="font-size: 12px;height: ">
+         $blocks[] = '<td style="font-size: 12px;color: #ffffff;">
             ##lang.author.name##:
          </td>';
       }
       if ($options['observer_person']) {
-         $blocks[] = '<td style="font-size: 12px;">
+         $blocks[] = '<td style="font-size: 12px;color: #ffffff;">
             ##lang.ticket.observerusers##:
          </td>';
       }
 
        $blocks[] = '</tr>
-    <tr style="height: 55px">';
+    <tr style="height: 55px;color: #ffffff;">';
        if ($options['request_person']) {
           $blocks[] = '
-      <td style="font-size: 18px;">
+      <td style="font-size: 18px;color: #ffffff;">
         ##ticket.authors##
       </td>';
        }
        if ($options['observer_person']) {
           $blocks[] = '
-      <td style="font-size: 18px;">
+      <td style="font-size: 18px;color: #ffffff;">
         ##ticket.observerusers##
       </td>';
        }
@@ -381,7 +381,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       $blocks[] = '<table style="border-collapse: collapse;width: 950px;background-color: #1b2f62;">
     <tr style="height: 40px">
       <td style="width: 119px;background-color: #1B2F62;"></td>
-      <td style="background-color: #[[replacebgcolor]];text-align: center;font-size: 18px;color: white;border-top-left-radius: 6px;">
+      <td style="background-color: #[[replacebgcolor]];text-align: center;font-size: 18px;color: #fff;border-top-left-radius: 6px;">
         <b>##ticket.action##</b>
       </td>
     </tr>
@@ -398,7 +398,7 @@ class PluginNotificationsNotification extends CommonDBTM {
             $image_name = "assistance_informatique";
          }
 
-         $blocks[] = '<img src="https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/pics/'.$image_name.'_'.$options['left_image'].'.png" alt="helpdesk">';
+         $blocks[] = '<img src="https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/pics/'.$image_name.'_'.$options['left_image'].'.png" alt="helpdesk"/>';
       }
       $blocks[] = '</td>
         <td style="vertical-align: top;width: 20px;"></td>
@@ -427,13 +427,13 @@ class PluginNotificationsNotification extends CommonDBTM {
          $blocks[] = '
                   </tr>
                   <tr>
-                    <td style="height: 8px;" colspan="2"></td>
+                    <td colspan="2" style="height: 8px;"></td>
                   </tr>
                   <tr>
                     <td colspan="2">##followup.description##</td>
                   </tr>
                   <tr>
-                    <td style="height: 15px;" colspan="2"></td>
+                    <td colspan="2" style="height: 15px;"></td>
                   </tr>
                 </table>
               </td>
@@ -477,13 +477,13 @@ class PluginNotificationsNotification extends CommonDBTM {
          }
          $blocks[] = '
                   <tr>
-                    <td style="height: 8px;" colspan="2"></td>
+                    <td colspan="2" style="height: 8px;"></td>
                   </tr>
                   <tr>
                     <td colspan="2">##task.description##</td>
                   </tr>
                   <tr>
-                    <td style="height: 15px;" colspan="2"></td>
+                    <td colspan="2" style="height: 15px;"></td>
                   </tr>
                 </table>
               </td>
@@ -495,7 +495,7 @@ class PluginNotificationsNotification extends CommonDBTM {
 ##ENDFOREACHtasks##';
       }
 
-      $blocks[] = '<br>
+      $blocks[] = '<br/>
           <table style="border-collapse: collapse;width: 786px;height: 100px;">
             <tr style="height: 30px;font-size: 16px;">
               <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Informations du ticket ##ticket.id##</th>
@@ -504,14 +504,14 @@ class PluginNotificationsNotification extends CommonDBTM {
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="width: 393px;background-color: #eaeaea;" colspan="2">';
+              <td colspan="2" style="width: 393px;background-color: #eaeaea;">';
       if ($options['tech_person']) {
          $blocks[] = '
                <b>##lang.ticket.assigntousers##:</b> ##ticket.assigntousers##';
       }
       $blocks[] = '
               </td>
-              <td style="width: 393px;background-color: #eaeaea;" colspan="2">';
+              <td colspan="2" style="width: 393px;background-color: #eaeaea;">';
       if ($options['tech_group']) {
          $blocks[] = '
                <b>##lang.ticket.assigntogroups##:</b> ##ticket.assigntogroups##';
@@ -524,7 +524,7 @@ class PluginNotificationsNotification extends CommonDBTM {
               <td colspan="4" style="background-color: #eaeaea;"></td>
             </tr>
             <tr>
-              <td style="background-color: #eaeaea;" colspan="4">';
+              <td colspan="4" style="background-color: #eaeaea;">';
 
       if ($options['type']) {
          $blocks[] = '<table style="border-collapse: collapse;width: 786px;">
@@ -661,7 +661,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                <td style="width: 150px;background-color: #eaeaea;">
                  <b>##lang.ticket.title##</b>
                </td>
-               <td style="width: 666px;background-color: #eaeaea;" colspan="3">
+               <td colspan="3" style="width: 666px;background-color: #eaeaea;">
                  ##ticket.title##
                </td>
              </tr>';
@@ -673,7 +673,7 @@ class PluginNotificationsNotification extends CommonDBTM {
               <td style="width: 150px;vertical-align: top;background-color: #eaeaea;">
                 <b>##lang.followup.description##</b>
               </td>
-              <td style="vertical-align: top;background-color: #eaeaea;" colspan="3">
+              <td colspan="3" style="vertical-align: top;background-color: #eaeaea;">
                  ##ticket.description##
               </td>
             </tr>';
@@ -686,7 +686,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                 <b>##lang.ticket.solution.description##</b>
               ##ENDIFticket.storestatus##
               </td>
-              <td style="vertical-align: top;background-color: #eaeaea;" colspan="3">
+              <td colspan="3" style="vertical-align: top;background-color: #eaeaea;">
               ##IFticket.storestatus=5##
                  ##ticket.solution.description##
               ##ENDIFticket.storestatus##
@@ -709,7 +709,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                   ##ENDIFticket.itemtype##
                 ##ENDFOREACHitems##
               </td>
-              <td style="width: 393px;background-color: #eaeaea;" colspan="2"></td>
+              <td colspan="2" style="width: 393px;background-color: #eaeaea;"></td>
             </tr>';
       }
       $blocks[] = '
@@ -757,13 +757,13 @@ class PluginNotificationsNotification extends CommonDBTM {
             $blocks[] = '
                               </tr>
                               <tr>
-                                <td style="height: 8px;" colspan="2"></td>
+                                <td colspan="2" style="height: 8px;"></td>
                               </tr>
                               <tr>
                                 <td colspan="2">##followup.description##</td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"></td>
+                                <td colspan="2" style="height: 15px;"></td>
                               </tr>
                             </table>
                           </td>
@@ -807,13 +807,13 @@ class PluginNotificationsNotification extends CommonDBTM {
             }
             $blocks[] = '
                               <tr>
-                                <td style="height: 8px;" colspan="2"></td>
+                                <td colspan="2" style="height: 8px;"></td>
                               </tr>
                               <tr>
                                 <td colspan="2">##task.description##</td>
                               </tr>
                               <tr>
-                                <td style="height: 15px;" colspan="2"></td>
+                                <td colspan="2" style="height: 15px;"></td>
                               </tr>
                             </table>
                           </td>
@@ -838,24 +838,24 @@ class PluginNotificationsNotification extends CommonDBTM {
               <th colspan="4" style="background-color: #5bc0de;color: #fff;width: 786px;">Plus d informations sur ce ticket</th>
             </tr>
             <tr>
-              <td style="width: 393px;background-color: #eaeaea;text-align: center;" colspan="2">
+              <td colspan="4" style="width: 393px;background-color: #eaeaea;text-align: center;">
                Visualiser ce ticket dans <a href="##ticket.url##" target="_blank">Glpi</a>
               </td>
             </tr>
           </table>
-          <br>
-          <br>
+          <br/>
+          <br/>
         </td>
         <td style="vertical-align: top;width: 20px;"></td>
       </tr>
    </table>';
 
          if (!empty($options['footer_text'])) {
-            $blocks[] = '<table style="border-collapse: collapse;width: 950px; border-bottom-left-radius: 6px;border-bottom-right-radius: 6px;background-color: #1B2F62;color: white;height: 80px;">
+            $blocks[] = '<table style="border-collapse: collapse;width: 950px; border-bottom-left-radius: 6px;border-bottom-right-radius: 6px;background-color: #1B2F62;color: #ffffff;height: 80px;">
     <tr style="height: 25px">
       <td style="width:160px" rowspan="2">
       </td>
-      <td style="width:778px;height: 30px;font-size: 14px;">
+      <td style="width:778px;height: 30px;font-size: 14px;color: #ffffff;">
          <i>This email was generated by Glpi - Designed by David Durieux</i>
       </td>
       <td style="font-size: 12px;height: ">
@@ -864,7 +864,7 @@ class PluginNotificationsNotification extends CommonDBTM {
   </table>';
          }
       }
-      $blocks[] = '
+      $blocks[] = '</div>
 </div>';
 
       return implode("\n", $blocks);
