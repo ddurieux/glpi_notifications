@@ -15,7 +15,7 @@
        * définir les champs à afficher dans la notification via des éléments de formulaire
        * générer la notification (joli design)
        
-       Ces notifications ont été testés et fonctionnent sur énormément de clients mail (logiciel & web).
+       Ces notifications ont été testés et fonctionnent sur énormément de clients mail (logiciel and web).
    </fr>
    <en>
        Whith this plugin, you can: 
@@ -23,7 +23,7 @@
        * define the fields to show in the notification. It can be do this form elements
        * generate the notification (nice design)
 
-       These notifications has been tested on many mail clients (software & web).
+       These notifications has been tested on many mail clients (software and web).
    </en>
      </long>
    </description>
