@@ -3,7 +3,7 @@
 /**
  * Notifications plugins
  *
- * Copyright (C) 2017-2017 by the Notification plugin Development Team.
+ * Copyright (C) 2017-2018 by the Notification plugin Development Team.
  *
  * https://github.com/ddurieux/glpi_notifications
  *
@@ -34,7 +34,7 @@
  *
  * @package   Notifications plugin
  * @author    David Durieux
- * @copyright Copyright (c) 2017-2017 Notifications plugin team
+ * @copyright Copyright (c) 2017-2018 Notifications plugin team
  * @license   AGPL License 3.0 or (at your option) any later version
  *            http://www.gnu.org/licenses/agpl-3.0-standalone.html
  * @link      https://github.com/ddurieux/glpi_notifications
@@ -79,7 +79,7 @@ function plugin_notifications_install() {
  */
 function plugin_notifications_uninstall() {
    global $DB;
-   
+
    $query = "DROP TABLE `glpi_plugin_notifications_notifications`";
    $DB->query($query);
    return true;
