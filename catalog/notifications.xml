@@ -55,8 +55,8 @@
          </en>
    </tags>
    <screenshots>
-      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-central.png</screenshot>
-      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-deploypackage.png</screenshot>
-      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-monitoring.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/catalog/notification.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/catalog/configuration.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/ddurieux/glpi_notifications/master/catalog/generation_notification.png</screenshot>
    </screenshots>
 </root>
