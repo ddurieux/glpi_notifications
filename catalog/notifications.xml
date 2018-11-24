@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <name>Notifications</name>
+   <key>notifications</key>
+   <state>stable</state>
+   <description>
+      <short>
+         <fr><![CDATA[Créer et configurer des notifications sexy simmplement]]></fr>
+         <en><![CDATA[Create and configure easily beautiful notifications]]></en>
+      </short>
+      <long>
+   <fr>
+       Ce plugin permet : 
+       
+       * définir les champs à afficher dans la notification via des éléments de formulaire
+       * générer la notification (joli design)
+       
+       Ces notifications ont été testés et fonctionnent sur énormément de clients mail (logiciel & web).
+   </fr>
+   <en>
+       Whith this plugin, you can: 
+       
+       * define the fields to show in the notification. It can be do this form elements
+       * generate the notification (nice design)
+
+       These notifications has been tested on many mail clients (software & web).
+   </en>
+     </long>
+   </description>
+   <homepage>https://github.com/ddurieux/glpi_notifications</homepage>
+   <download>https://github.com/ddurieux/glpi_notifications/releases</download>
+   <issues>https://github.com/ddurieux/glpi_notifications/issues</issues>
+   <readme></readme>
+   <authors>
+      <author>David DURIEUX</author>
+      <author>DCS easyware</author>
+   </authors>
+   <versions>
+      <version>
+         <num>9.3+1.0</num>
+         <compatibility>9.3</compatibility>
+      </version>
+   </versions>
+   <langs>
+      <lang>fr_FR</lang>
+      <lang>en_GB</lang>
+   </langs>
+   <license>AGPLv3+</license>
+   <tags>
+         <fr>
+            <tag>notification</tag>
+         </fr>
+         <en>
+            <tag>notification</tag>
+         </en>
+   </tags>
+   <screenshots>
+      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-central.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-deploypackage.png</screenshot>
+      <screenshot>https://raw.githubusercontent.com/fusioninventory/fusioninventory-for-glpi/master/screenshots/0.90-monitoring.png</screenshot>
+   </screenshots>
+</root>
