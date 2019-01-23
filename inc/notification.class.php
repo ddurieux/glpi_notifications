@@ -921,7 +921,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       // Prepare email notif
       $input = [
           'notificationtemplates_id' => $nt_id,
-          'subject'      => '##ticket.action## ##ticket.title##',
+          'subject'      => '##ticket.shortentity## - ##ticket.action## : ##ticket.title##',
           'content_text' => '',
           'content_html' => str_replace('[[replacebgcolor]]', $color, $html)
       ];
