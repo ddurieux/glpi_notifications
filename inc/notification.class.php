@@ -839,7 +839,7 @@ class PluginNotificationsNotification extends CommonDBTM {
             </tr>
             <tr>
               <td colspan="4" style="width: 393px;background-color: #eaeaea;text-align: center;">
-               Visualiser ce ticket dans <a href="##ticket.url##" target="_blank">Glpi</a>
+               <a href="##ticket.url##" target="_blank">Visualiser ce ticket dans Glpi</a>
               </td>
             </tr>
           </table>
@@ -921,7 +921,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       // Prepare email notif
       $input = [
           'notificationtemplates_id' => $nt_id,
-          'subject'      => '##ticket.action## ##ticket.title##',
+          'subject'      => '##ticket.shortentity## - ##ticket.action## : ##ticket.title##',
           'content_text' => '',
           'content_html' => str_replace('[[replacebgcolor]]', $color, $html)
       ];
