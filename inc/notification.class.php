@@ -839,7 +839,7 @@ class PluginNotificationsNotification extends CommonDBTM {
             </tr>
             <tr>
               <td colspan="4" style="width: 393px;background-color: #eaeaea;text-align: center;">
-               <a href="##ticket.url##" target="_blank">Visualiser ce ticket dans Glpi</a>
+               <a href="##ticket.url##" target="_blank">Visualiser ce ticket dans GLPI</a>
               </td>
             </tr>
           </table>
