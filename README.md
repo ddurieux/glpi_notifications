@@ -18,3 +18,8 @@ These notifications has been tested on many mail clients (software & web).
 7) Save
 
 <3 enjoy <3
+
+# Known issues
+
+Editing a template directly in GLPI will broke the template, and you will need to re-generate it.
+Edit from database directly if needed.
