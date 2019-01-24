@@ -64,7 +64,7 @@ function plugin_notifications_install() {
          `date_mod` datetime DEFAULT NULL,
          `date_creation` datetime DEFAULT NULL,
          PRIMARY KEY (`id`)
-      ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
+      ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
       $DB->query($query);
    }
    return true;
