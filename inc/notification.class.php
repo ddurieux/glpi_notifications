@@ -367,22 +367,22 @@ class PluginNotificationsNotification extends CommonDBTM {
          </td>';
       }
 
-       $blocks[] = '</tr>
+      $blocks[] = '</tr>
     <tr style="height: 55px;color: #ffffff;">';
-       if ($options['request_person']) {
-          $blocks[] = '
+      if ($options['request_person']) {
+         $blocks[] = '
       <td style="font-size: 18px;color: #ffffff;">
         ##ticket.authors##
       </td>';
-       }
-       if ($options['observer_person']) {
-          $blocks[] = '
+      }
+      if ($options['observer_person']) {
+         $blocks[] = '
       <td style="font-size: 18px;color: #ffffff;">
         ##ticket.observerusers##
       </td>';
-       }
+      }
 
-       $blocks[] = '</tr>';
+      $blocks[] = '</tr>';
       $blocks[] = "  </table>\n";
       $blocks[] = '<table style="border-collapse: collapse;width: 950px;background-color: #1b2f62;">
     <tr style="height: 40px">
@@ -737,18 +737,18 @@ class PluginNotificationsNotification extends CommonDBTM {
                 <td style="width: 786px;">
                   <table style="width: 786px;">
                     <tr style="height: 30px;font-size: 16px;">';
-           if ($options['followups']) {
-              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>';
-           }
-           if ($options['tasks']) {
-              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>';
-           }
-           $blocks[] = '
+            if ($options['followups']) {
+               $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>';
+            }
+            if ($options['tasks']) {
+               $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>';
+            }
+            $blocks[] = '
                     </tr>
                     <tr>
                       ';
-           if ($options['followups']) {
-              $blocks[] = '<td style="vertical-align: top;">
+            if ($options['followups']) {
+               $blocks[] = '<td style="vertical-align: top;">
                         <table>
 ##FOREACHfollowups##
                            <tr>
@@ -783,9 +783,9 @@ class PluginNotificationsNotification extends CommonDBTM {
                         </table>
                       </td>
                         ';
-           }
-           if ($options['tasks']) {
-              $blocks[] = '
+            }
+            if ($options['tasks']) {
+               $blocks[] = '
                       <td style="vertical-align: top;">
                         <table>
 ##FOREACHtasks##
@@ -839,8 +839,8 @@ class PluginNotificationsNotification extends CommonDBTM {
 ##ENDFOREACHtasks##
                         </table>
                       </td>';
-           }
-           $blocks[] = '
+            }
+            $blocks[] = '
                     </tr>
                   </table>
                 </td>
@@ -856,12 +856,12 @@ class PluginNotificationsNotification extends CommonDBTM {
                 <td style="width: 786px;">
                   <table style="width: 786px;">
                     <tr style="height: 30px;font-size: 16px;">';
-              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">Activity, number of messages: ##ticket.numberofactivitymessages##</th>';
-           $blocks[] = '
+            $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">Activity, number of messages: ##ticket.numberofactivitymessages##</th>';
+            $blocks[] = '
                     </tr>
                     <tr>
                       ';
-              $blocks[] = '<td style="vertical-align: top;">
+            $blocks[] = '<td style="vertical-align: top;">
                         <table>
 ##FOREACHactivitymessages##
                            <tr>
@@ -875,26 +875,26 @@ class PluginNotificationsNotification extends CommonDBTM {
                                    width: 80px;">
                                    </td>
                                    <td colspan="2">';
-               if ($options['followups_author']) {
-                  $blocks[] = '<b>'.__('By').'</b> <i>##activitymessage.author##</i> <b>le</b> <i>##activitymessage.date##</i></td>';
-               } else {
-                  $blocks[] = '<b>Le</b> <i>##activitymessage.date##</i></td>';
-               }
-               $blocks[] = '
+            if ($options['followups_author']) {
+               $blocks[] = '<b>'.__('By').'</b> <i>##activitymessage.author##</i> <b>le</b> <i>##activitymessage.date##</i></td>';
+            } else {
+               $blocks[] = '<b>Le</b> <i>##activitymessage.date##</i></td>';
+            }
+            $blocks[] = '
                                  </tr>';
-               if ($options['tasks_time']) {
-                  $blocks[] = '<tr>
+            if ($options['tasks_time']) {
+               $blocks[] = '<tr>
                           <td style="width: 150px;">##IFtask.time##<b>##lang.task.time##</b>##ENDIFtask.time##</td>
                           <td>##IFtask.time## ##task.time## ##ENDIFtask.time##</td>
                         </tr>';
-               }
-               if ($options['tasks_category']) {
-                  $blocks[] = '<tr>
+            }
+            if ($options['tasks_category']) {
+               $blocks[] = '<tr>
                           <td style="width: 150px;">##IFactivitymessage.category##<b>##lang.task.category##</b>##ENDIFactivitymessage.category##</td>
                           <td>##IFactivitymessage.category## ##activitymessage.category## ##ENDIFactivitymessage.category##</td>
                         </tr>';
-               }
-               $blocks[] = '
+            }
+            $blocks[] = '
                                  <tr>
                                    <td colspan="2" style="height: 4px;"></td>
                                  </tr>
@@ -914,7 +914,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                         </table>
                       </td>
                         ';
-           $blocks[] = '
+            $blocks[] = '
                     </tr>
                   </table>
                 </td>

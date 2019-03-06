@@ -55,7 +55,7 @@ include_once(GLPI_ROOT."/inc/includes.php");
 function plugin_init_notifications() {
    global $PLUGIN_HOOKS, $CFG_GLPI;
 
-   $PLUGIN_HOOKS['csrf_compliant']['notifications'] = TRUE;
+   $PLUGIN_HOOKS['csrf_compliant']['notifications'] = true;
 
    $Plugin = new Plugin();
    $moduleId = 0;
@@ -85,15 +85,16 @@ function plugin_init_notifications() {
  * @return array
  */
 function plugin_version_notifications() {
-   return array('name'           => 'Notifications',
-                'shortname'      => 'notifications',
-                'version'        => PLUGIN_NOTIFICATIONS_VERSION,
-                'license'        => 'AGPLv3+',
-                'author'         => '<a href="mailto:david@durieux.family">David DURIEUX</a>
-                                    & <a href="mailto:dcs.glpi@dcsit-group.com">DCS company</a>',
-                'homepage'       =>'https://github.com/ddurieux/glpi_notifications',
-                'minGlpiVersion' => '9.3'
-   );
+   return [
+      'name'           => 'Notifications',
+      'shortname'      => 'notifications',
+      'version'        => PLUGIN_NOTIFICATIONS_VERSION,
+      'license'        => 'AGPLv3+',
+      'author'         => '<a href="mailto:david@durieux.family">David DURIEUX</a>
+                        & <a href="mailto:dcs.glpi@dcsit-group.com">DCS company</a>',
+      'homepage'       =>'https://github.com/ddurieux/glpi_notifications',
+      'minGlpiVersion' => '9.3'
+   ];
 }
 
 
@@ -106,7 +107,7 @@ function plugin_version_notifications() {
  */
 function plugin_notifications_check_prerequisites() {
 
-   return TRUE;
+   return true;
 }
 
 
@@ -117,5 +118,5 @@ function plugin_notifications_check_prerequisites() {
  * @return boolean
  */
 function plugin_notifications_check_config() {
-   return TRUE;
+   return true;
 }
