@@ -67,6 +67,21 @@ function plugin_notifications_install() {
       ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
       $DB->query($query);
    }
+
+   // add option followup_task_display (9.3+2.0)
+   $iterator = $DB->request([
+      'FROM'   => 'glpi_plugin_notifications_notifications'
+   ]);
+   while ($data = $iterator->next()) {
+      if (!strstr($data['options'], 'followup_task_display')) {
+         // add it
+         $options = str_replace("}", ',"opt_followup_task_display":"separate"}', $data['options']);
+         $DB->update(
+               'glpi_plugin_notifications_notifications',
+               ['options' => $options],
+               ['WHERE' => ['id' => $data['id']]]);
+      }
+   }
    return true;
 }
 
@@ -83,4 +98,79 @@ function plugin_notifications_uninstall() {
    $query = "DROP TABLE `glpi_plugin_notifications_notifications`";
    $DB->query($query);
    return true;
+}
+
+/**
+ * Fill tags with data from database
+ */
+function plugin_notifications_item_get_datas(NotificationTarget $item) {
+
+   $ticketFollowup = new TicketFollowup();
+   $ticketTask     = new TicketTask();
+
+   $item->data['activitymessages'] = [];
+
+   $restrict = ['tickets_id' => $item->obj->getField('id')];
+   $restrict_noprivate  = $restrict;
+   $restrict_noprivate['is_private'] = 0;
+
+   // for followup and tasks, we compare followups / tasks got by the core and compare total with get here (only public and all)
+   // for that we use  $item->data['followups'] and $item->data['tasks']
+   $followups_in_data = count($item->data['followups']);
+   $tasks_in_data = count($item->data['tasks']);
+
+   // Get followups
+   $followups = getAllDatasFromTable('glpi_ticketfollowups', $restrict, false);
+   $followups_noprivate = getAllDatasFromTable('glpi_ticketfollowups', $restrict_noprivate, false);
+
+   $allfollowups = [];
+   if (count($followups_noprivate) == $followups_in_data) {
+      $allfollowups = $followups_noprivate;
+   } else if (count($followups) == $followups_in_data) {
+      $allfollowups = $followups;
+   } else {
+      $allfollowups = $followups_noprivate;
+   }
+
+   foreach ($allfollowups as $followup) {
+      $tmp = [
+         '##activitymessage.type##'        => 'followup',
+         '##activitymessage.isprivate##'   => Dropdown::getYesNo($followup['is_private']),
+         '##activitymessage.author##'      => Html::clean(getUserName($followup['users_id'])),
+         '##activitymessage.requesttype##' => Dropdown::getDropdownName('glpi_requesttypes', $followup['requesttypes_id']),
+         '##activitymessage.date##'        => Html::convDateTime($followup['date']),
+         '##activitymessage.description##' => Html::clean($followup['content']),
+         '##activitymessage.category##'    => '',
+         '##task.time##'                   => ''
+      ];
+      $item->data['activitymessages'][strtotime($followup['date'])] = $tmp;
+   }
+
+   // get tasks
+   $tasks = getAllDatasFromTable('glpi_tickettasks', $restrict, false);
+   $tasks_noprivate = getAllDatasFromTable('glpi_tickettasks', $restrict_noprivate, false);
+   $alltasks = [];
+   if (count($tasks_noprivate) == $tasks_in_data) {
+      $alltasks = $tasks_noprivate;
+   } else if (count($tasks) == $tasks_in_data) {
+      $alltasks = $tasks;
+   } else {
+      $alltasks = $tasks_noprivate;
+   }
+
+   foreach ($alltasks as $task) {
+      $tmp = [
+         '##activitymessage.type##'        => 'task',
+         '##activitymessage.isprivate##'   => Dropdown::getYesNo($task['is_private']),
+         '##activitymessage.author##'      => Html::clean(getUserName($task['users_id'])),
+         '##activitymessage.requesttype##' => '',
+         '##activitymessage.date##'        => Html::convDateTime($task['date']),
+         '##activitymessage.description##' => Html::clean($task['content']),
+         '##activitymessage.category##'    => Dropdown::getDropdownName('glpi_taskcategories', $task['taskcategories_id']),
+         '##task.time##'                   => Html::timestampToString($task['actiontime'], false)
+      ];
+      $item->data['activitymessages'][strtotime($task['date'])] = $tmp;
+   }
+   krsort($item->data['activitymessages']);
+   $item->data['##ticket.numberofactivitymessages##'] = count($item->data['activitymessages']);
 }
