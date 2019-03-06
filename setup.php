@@ -41,7 +41,7 @@
  *
  */
 
-define ("PLUGIN_NOTIFICATIONS_VERSION", "9.3+1.0");
+define ("PLUGIN_NOTIFICATIONS_VERSION", "9.3+2.0");
 
 include_once(GLPI_ROOT."/inc/includes.php");
 
@@ -71,6 +71,9 @@ function plugin_init_notifications() {
       if (Session::haveRight('config', READ)) {
          $PLUGIN_HOOKS["menu_toadd"]['notifications']['config'] = 'PluginNotificationsNotification';
       }
+      $PLUGIN_HOOKS['item_get_datas']['notifications'] =
+               ['NotificationTargetTicket' => 'plugin_notifications_item_get_datas'];
+
    }
 }
 

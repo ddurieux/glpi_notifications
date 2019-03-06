@@ -272,6 +272,12 @@ class PluginNotificationsNotification extends CommonDBTM {
           'footer_text' => [
               'name' => __('Footer text', 'notification'),
               'type' => 'text'
+          ],
+          'followup_task_display' => [
+              'name'    => __('Display followups and tasks'),
+              'type'    => 'select',
+              'allowed' => ['separate' => __('separate', 'notifications'),
+                            'unified'  => __('unified', 'notifications')]
           ]
       ];
    }
@@ -420,7 +426,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                   <tr>
                     <td colspan="2">';
          if ($options['followups_author']) {
-            $blocks[] = '<b>Par</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>';
+            $blocks[] = '<b>'.__('By').'</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>';
          } else {
             $blocks[] = '<b>Le</b> <i>##followup.date##</i></td>';
          }
@@ -458,7 +464,7 @@ class PluginNotificationsNotification extends CommonDBTM {
                 <table>
                   <tr>';
          if ($options['tasks_author']) {
-            $blocks[] = '<td colspan="2"><b>Par</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>';
+            $blocks[] = '<td colspan="2"><b>'.__('By').'</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>';
          } else {
             $blocks[] = '<td colspan="2"><b>Le</b> <i>##task.date##</i></td>';
          }
@@ -718,119 +724,203 @@ class PluginNotificationsNotification extends CommonDBTM {
           ';
       if ($options['followups'] or $options['tasks']) {
          $size = 816;
-         if ($options['followups'] and $options['tasks']) {
-            $size = 408;
-         }
-         $blocks[] = '
-          <table style="border-collapse: collapse;width: 786px;height: 120px;">
-            <tr>
-              <td style="height: 20px;"></td>
-            </tr>
-            <tr>
-              <td style="width: 786px;">
-                <table style="width: 786px;">
-                  <tr style="height: 30px;font-size: 16px;">';
-         if ($options['followups']) {
-            $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>';
-         }
-         if ($options['tasks']) {
-            $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>';
-         }
-         $blocks[] = '
-                  </tr>
-                  <tr>
-                    ';
-         if ($options['followups']) {
-            $blocks[] = '<td style="vertical-align: top;">
-                      <table>
-##FOREACHfollowups##
-                        <tr>
-                          <td style="background-color: #eaeaea;width: '.$size.'px;">
-                            <table>
-                              <tr>
-                                <td colspan="2">';
-            if ($options['followups_author']) {
-               $blocks[] = '<b>Par</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>';
-            } else {
-               $blocks[] = '<b>Le</b> <i>##followup.date##</i></td>';
+         if ($options['followup_task_display'] == 'separate') {
+            if ($options['followups'] and $options['tasks']) {
+               $size = 408;
             }
             $blocks[] = '
-                              </tr>
-                              <tr>
-                                <td colspan="2" style="height: 8px;"></td>
-                              </tr>
-                              <tr>
-                                <td colspan="2">##followup.description##</td>
-                              </tr>
-                              <tr>
-                                <td colspan="2" style="height: 15px;"></td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="height: 15px;"></td>
-                        </tr>
+            <table style="border-collapse: collapse;width: 786px;height: 120px;">
+              <tr>
+                <td style="height: 20px;"></td>
+              </tr>
+              <tr>
+                <td style="width: 786px;">
+                  <table style="width: 786px;">
+                    <tr style="height: 30px;font-size: 16px;">';
+           if ($options['followups']) {
+              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoffollowups##: ##ticket.numberoffollowups##</th>';
+           }
+           if ($options['tasks']) {
+              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">##lang.ticket.numberoftasks##: ##ticket.numberoftasks##</th>';
+           }
+           $blocks[] = '
+                    </tr>
+                    <tr>
+                      ';
+           if ($options['followups']) {
+              $blocks[] = '<td style="vertical-align: top;">
+                        <table>
+##FOREACHfollowups##
+                           <tr>
+                             <td style="background-color: #eaeaea;width: '.$size.'px;">
+                               <table>
+                                 <tr>
+                                   <td colspan="2">';
+               if ($options['followups_author']) {
+                  $blocks[] = '<b>'.__('By').'</b> <i>##followup.author##</i> <b>le</b> <i>##followup.date##</i></td>';
+               } else {
+                  $blocks[] = '<b>Le</b> <i>##followup.date##</i></td>';
+               }
+               $blocks[] = '
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2" style="height: 8px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2">##followup.description##</td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2" style="height: 15px;"></td>
+                                 </tr>
+                               </table>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td style="height: 15px;"></td>
+                           </tr>
 
 ##ENDFOREACHfollowups##
-                      </table>
-                    </td>
-                      ';
-         }
-         if ($options['tasks']) {
-            $blocks[] = '
-                    <td style="vertical-align: top;">
-                      <table>
+                        </table>
+                      </td>
+                        ';
+           }
+           if ($options['tasks']) {
+              $blocks[] = '
+                      <td style="vertical-align: top;">
+                        <table>
 ##FOREACHtasks##
-                        <tr>
-                          <td style="background-color: #eaeaea;width: '.$size.'px;">
-                            <table>
-                              <tr>';
-            if ($options['tasks_author']) {
-               $blocks[] = '<td colspan="2"><b>Par</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>';
-            } else {
-               $blocks[] = '<td colspan="2"><b>Le</b> <i>##task.date##</i></td>';
-            }
-            $blocks[] = '
-                              </tr>';
-            if ($options['tasks_time']) {
-               $blocks[] = '<tr>
-                       <td><b>##lang.task.time##</b></td>
-                       <td>##task.time##</td>
-                     </tr>';
-            }
-            if ($options['tasks_category']) {
-               $blocks[] = '<tr>
-                       <td><b>##lang.task.category##</b></td>
-                       <td>##task.category##</td>
-                     </tr>';
-            }
-            $blocks[] = '
-                              <tr>
-                                <td colspan="2" style="height: 8px;"></td>
-                              </tr>
-                              <tr>
-                                <td colspan="2">##task.description##</td>
-                              </tr>
-                              <tr>
-                                <td colspan="2" style="height: 15px;"></td>
-                              </tr>
-                            </table>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td style="height: 15px;"></td>
-                        </tr>
+                           <tr>
+                             <td style="background-color: #eaeaea;width: '.$size.'px;">
+                               <table>
+                                 <tr>';
+               if ($options['tasks_author']) {
+                  $blocks[] = '<td colspan="2"><b>'.__('By').'</b> <i>##task.author##</i> <b>le</b> <i>##task.date##</i></td>';
+               } else {
+                  $blocks[] = '<td colspan="2"><b>Le</b> <i>##task.date##</i></td>';
+               }
+               $blocks[] = '
+                                 </tr>';
+               if ($options['tasks_time']) {
+                  $blocks[] = '<tr>
+                          <td><b>##lang.task.time##</b></td>
+                          <td>##task.time##</td>
+                        </tr>';
+               } else {
+                  $blocks[] = '<tr>
+                          <td colspan="2"></td>
+                        </tr>';
+               }
+               if ($options['tasks_category']) {
+                  $blocks[] = '<tr>
+                          <td><b>##lang.task.category##</b></td>
+                          <td>##task.category##</td>
+                        </tr>';
+               } else {
+                  $blocks[] = '<tr>
+                          <td colspan="2"></td>
+                        </tr>';
+               }
+               $blocks[] = '
+                                 <tr>
+                                   <td colspan="2" style="height: 8px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2">##task.description##</td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2" style="height: 15px;"></td>
+                                 </tr>
+                               </table>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td style="height: 8px;"></td>
+                           </tr>
 ##ENDFOREACHtasks##
-                      </table>
-                    </td>';
+                        </table>
+                      </td>';
+           }
+           $blocks[] = '
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>';
+         } else if ($options['followup_task_display'] == 'unified') {
+            $blocks[] = '
+            <table style="border-collapse: collapse;width: 786px;height: 120px;">
+              <tr>
+                <td style="height: 20px;"></td>
+              </tr>
+              <tr>
+                <td style="width: 786px;">
+                  <table style="width: 786px;">
+                    <tr style="height: 30px;font-size: 16px;">';
+              $blocks[] = '<th style="background-color: #5bc0de;color: #fff;width: '.$size.'px;">Activity, number of messages: ##ticket.numberofactivitymessages##</th>';
+           $blocks[] = '
+                    </tr>
+                    <tr>
+                      ';
+              $blocks[] = '<td style="vertical-align: top;">
+                        <table>
+##FOREACHactivitymessages##
+                           <tr>
+                             <td style="width: '.$size.'px;">
+                               <table style="background-color: #eaeaea;width: '.$size.'px;height: 90px;">
+                                 <tr>
+                                 <tr>
+                                   <td rowspan="6" style="background-repeat: no-repeat;
+                                   background-image: ##IFactivitymessage.type=followup##url('.$CFG_GLPI["url_base"].'/pics/timeline/followup.png)##ENDIFactivitymessage.type####IFactivitymessage.type=task##url('.$CFG_GLPI["url_base"].'/pics/timeline/task.png)##ENDIFactivitymessage.type##;
+                                   background-color: ##IFactivitymessage.type=followup## #E0E0E0 ##ENDIFactivitymessage.type## ##IFactivitymessage.type=task## #FEDA90 ##ENDIFactivitymessage.type##;
+                                   width: 80px;">
+                                   </td>
+                                   <td colspan="2">';
+               if ($options['followups_author']) {
+                  $blocks[] = '<b>'.__('By').'</b> <i>##activitymessage.author##</i> <b>le</b> <i>##activitymessage.date##</i></td>';
+               } else {
+                  $blocks[] = '<b>Le</b> <i>##activitymessage.date##</i></td>';
+               }
+               $blocks[] = '
+                                 </tr>';
+               if ($options['tasks_time']) {
+                  $blocks[] = '<tr>
+                          <td style="width: 150px;">##IFtask.time##<b>##lang.task.time##</b>##ENDIFtask.time##</td>
+                          <td>##IFtask.time## ##task.time## ##ENDIFtask.time##</td>
+                        </tr>';
+               }
+               if ($options['tasks_category']) {
+                  $blocks[] = '<tr>
+                          <td style="width: 150px;">##IFactivitymessage.category##<b>##lang.task.category##</b>##ENDIFactivitymessage.category##</td>
+                          <td>##IFactivitymessage.category## ##activitymessage.category## ##ENDIFactivitymessage.category##</td>
+                        </tr>';
+               }
+               $blocks[] = '
+                                 <tr>
+                                   <td colspan="2" style="height: 4px;"></td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2">##activitymessage.description##</td>
+                                 </tr>
+                                 <tr>
+                                   <td colspan="2" style="height: 7px;"></td>
+                                 </tr>
+                               </table>
+                             </td>
+                           </tr>
+                           <tr>
+                             <td style="height: 15px;"></td>
+                           </tr>
+##ENDFOREACHactivitymessages##
+                        </table>
+                      </td>
+                        ';
+           $blocks[] = '
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>';
          }
-         $blocks[] = '
-                  </tr>
-                </table>
-              </td>
-            </tr>
-          </table>';
       }
       if ($options['url_link']) {
          $blocks[] = '<table style="border-collapse: collapse;width: 786px;height: 100px;">
