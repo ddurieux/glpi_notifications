@@ -111,13 +111,13 @@ function plugin_notifications_uninstall() {
  * Fill tags with data from database
  */
 function plugin_notifications_item_get_datas(NotificationTarget $item) {
-
-   $ticketFollowup = new TicketFollowup();
-   $ticketTask     = new TicketTask();
-
+   
    $item->data['activitymessages'] = [];
 
-   $restrict = ['tickets_id' => $item->obj->getField('id')];
+   $restrict = [
+      'items_id' => $item->obj->getField('id'),
+      'itemtype' => 'Ticket'
+   ];
    $restrict_noprivate  = $restrict;
    $restrict_noprivate['is_private'] = 0;
 
@@ -127,8 +127,8 @@ function plugin_notifications_item_get_datas(NotificationTarget $item) {
    $tasks_in_data = count($item->data['tasks']);
 
    // Get followups
-   $followups = getAllDatasFromTable('glpi_ticketfollowups', $restrict, false);
-   $followups_noprivate = getAllDatasFromTable('glpi_ticketfollowups', $restrict_noprivate, false);
+   $followups = getAllDatasFromTable('glpi_itilfollowups', $restrict, false);
+   $followups_noprivate = getAllDatasFromTable('glpi_itilfollowups', $restrict_noprivate, false);
 
    $allfollowups = [];
    if (count($followups_noprivate) == $followups_in_data) {
@@ -154,6 +154,11 @@ function plugin_notifications_item_get_datas(NotificationTarget $item) {
    }
 
    // get tasks
+
+   $restrict = ['tickets_id' => $item->obj->getField('id')];
+   $restrict_noprivate  = $restrict;
+   $restrict_noprivate['is_private'] = 0;
+
    $tasks = getAllDatasFromTable('glpi_tickettasks', $restrict, false);
    $tasks_noprivate = getAllDatasFromTable('glpi_tickettasks', $restrict_noprivate, false);
    $alltasks = [];
