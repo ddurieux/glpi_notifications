@@ -14,6 +14,7 @@
        
        * définir les champs à afficher dans la notification via des éléments de formulaire
        * générer la notification (joli design)
+       * afficher les suivis et tâches ensemble (comme la timeline)
        
        Ces notifications ont été testés et fonctionnent sur énormément de clients mail (logiciel and web).
    </fr>
@@ -22,6 +23,7 @@
        
        * define the fields to show in the notification. It can be do this form elements
        * generate the notification (nice design)
+       * display the followups and tacks together (like the timeline)
 
        These notifications has been tested on many mail clients (software and web).
    </en>
@@ -36,6 +38,10 @@
       <author>DCS easyware</author>
    </authors>
    <versions>
+      <version>
+         <num>9.3+2.0</num>
+         <compatibility>9.3</compatibility>
+      </version>
       <version>
          <num>9.3+1.0</num>
          <compatibility>9.3</compatibility>
