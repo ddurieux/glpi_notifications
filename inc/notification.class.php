@@ -152,6 +152,10 @@ class PluginNotificationsNotification extends CommonDBTM {
 
    function getOptions() {
       return [
+          'subject' => [
+              'name' => __('Subject'),
+              'type' => 'string'
+          ],
           'left_image' => [
               'name'    => __('image Helpdesk à gauche'),
               'type'    => 'select',
@@ -284,6 +288,8 @@ class PluginNotificationsNotification extends CommonDBTM {
 
 
    function displayOptions() {
+      global $CFG_GLPI;
+
       $options = $this->getOptions();
 
       echo "<tr class='tab_bg_1'>";
@@ -312,6 +318,22 @@ class PluginNotificationsNotification extends CommonDBTM {
          } else if ($data['type'] == 'select') {
             Dropdown::showFromArray('opt_'.$name, $data['allowed'],
                     ['value' => $db_options['opt_'.$name]]);
+         } else if ($data['type'] == 'string') {
+            if ($name == 'subject'
+                  AND !isset($db_options['opt_'.$name])) {
+               $db_options['opt_'.$name] = '##ticket.shortentity## - ##ticket.action## : ##ticket.title##';
+            }
+            if ($name == 'subject') {
+               $rand = mt_rand();
+               Ajax::createIframeModalWindow("tags".$rand,
+                                             $CFG_GLPI['root_doc']."/front/notification.tags.php?sub_type=".
+                                                'Ticket');
+               echo "<a class='vsubmit' href='#' onClick=\"".Html::jsGetElementbyID("tags".$rand).".dialog('open'); return false;\">".__('Show list of available tags')."</a><br/>";
+            }
+            echo Html::input('opt_'.$name, [
+               'value' => $db_options['opt_'.$name],
+               'size'  => 45
+               ]);
          } else if ($data['type'] == 'text') {
             if ($name == 'footer_text'
                   AND !isset($db_options['opt_'.$name])) {
@@ -1011,7 +1033,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       // Prepare email notif
       $input = [
           'notificationtemplates_id' => $nt_id,
-          'subject'      => '##ticket.shortentity## - ##ticket.action## : ##ticket.title##',
+          'subject'      => $options['subject'],
           'content_text' => '',
           'content_html' => str_replace('[[replacebgcolor]]', $color, $html)
       ];
