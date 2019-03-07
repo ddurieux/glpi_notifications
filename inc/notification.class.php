@@ -159,7 +159,8 @@ class PluginNotificationsNotification extends CommonDBTM {
           'left_image' => [
               'name'    => __('image Helpdesk à gauche'),
               'type'    => 'select',
-              'allowed' => ['None' => 'none', 'M' => 'M', 'XL' => 'XL']
+              'allowed' => ['None' => 'none', 'M' => 'M', 'XL' => 'XL'],
+               'default' => 'M'
           ],
           'entity' => [
               'name' => __('Entity'),
@@ -281,7 +282,8 @@ class PluginNotificationsNotification extends CommonDBTM {
               'name'    => __('Display followups and tasks'),
               'type'    => 'select',
               'allowed' => ['separate' => __('separate', 'notifications'),
-                            'unified'  => __('unified', 'notifications')]
+                            'unified'  => __('unified', 'notifications')],
+               'default' => 'unified'
           ]
       ];
    }
@@ -316,6 +318,9 @@ class PluginNotificationsNotification extends CommonDBTM {
          if ($data['type'] == 'boolean') {
             Dropdown::showYesNo('opt_'.$name, $db_options['opt_'.$name]);
          } else if ($data['type'] == 'select') {
+            if (!isset($db_options['opt_'.$name])) {
+               $db_options['opt_'.$name] = $data['default'];
+            }
             Dropdown::showFromArray('opt_'.$name, $data['allowed'],
                     ['value' => $db_options['opt_'.$name]]);
          } else if ($data['type'] == 'string') {

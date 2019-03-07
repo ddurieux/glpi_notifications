@@ -112,9 +112,6 @@ function plugin_notifications_uninstall() {
  */
 function plugin_notifications_item_get_datas(NotificationTarget $item) {
 
-   $ticketFollowup = new TicketFollowup();
-   $ticketTask     = new TicketTask();
-
    $item->data['activitymessages'] = [];
 
    $restrict = ['tickets_id' => $item->obj->getField('id')];
