@@ -41,7 +41,7 @@
  *
  */
 
-define ("PLUGIN_NOTIFICATIONS_VERSION", "9.3+2.0");
+define ("PLUGIN_NOTIFICATIONS_VERSION", "9.3+2.1");
 
 include_once(GLPI_ROOT."/inc/includes.php");
 
