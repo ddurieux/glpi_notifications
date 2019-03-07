@@ -151,13 +151,24 @@ class PluginNotificationsNotification extends CommonDBTM {
 
 
    function getOptions() {
+      global $CFG_GLPI;
+
       return [
           'subject' => [
               'name' => __('Subject'),
               'type' => 'string'
           ],
+          'logo' => [
+              'name'    => __('Logo', 'notifications'),
+              'type'    => 'select',
+              'allowed' => [
+                 'default' => __('Default display'), 
+                 'glpi_instance' => __('Your GLPI logo (pics/fd_logo.png)', 'notifications')
+               ],
+              'default' => 'default'
+          ],
           'left_image' => [
-              'name'    => __('image Helpdesk à gauche'),
+              'name'    => __('Helpdesk picture at left', 'notifications'),
               'type'    => 'select',
               'allowed' => ['None' => 'none', 'M' => 'M', 'XL' => 'XL'],
               'default' => 'M'
@@ -369,12 +380,12 @@ class PluginNotificationsNotification extends CommonDBTM {
       global $CFG_GLPI;
 
       $blocks = [];
-
+      $logo = $this->getLogoURL($options['logo']);
       $blocks[] = '<div style="font-family: Helvetica;">
   <table style="border-collapse: collapse;width: 950px; border-top-left-radius: 6px;border-top-right-radius: 6px;background-color: #1B2F62;color: #ffffff;height: 80px;">
     <tr style="height: 25px">
       <td style="width:160px" rowspan="2">
-        <img alt="GLPi" title="Glpi" width="100" height="55" src="'.$CFG_GLPI["url_base"].'/pics/fd_logo.png" />
+        <img alt="GLPi" title="Glpi" width="100" height="55" src="'.$logo.'" />
       </td>
       <td style="width:350px;height: 30px;font-size: 24px;color: #ffffff;" rowspan="2">';
 
@@ -1086,5 +1097,15 @@ class PluginNotificationsNotification extends CommonDBTM {
 
       }
       return $menu;
+   }
+
+   function getLogoURL($type) {
+      global $CFG_GLPI;
+
+      if ($type == 'glpi_instance') {
+         return $CFG_GLPI["url_base"].'/pics/fd_logo.png';
+      }
+      // default
+      return 'https://raw.githubusercontent.com/glpi-project/glpi/master/pics/fd_logo.png';
    }
 }
