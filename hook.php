@@ -88,6 +88,13 @@ function plugin_notifications_install() {
                ['options' => $options],
                ['WHERE' => ['id' => $data['id']]]);
       }
+      if (!strstr($data['options'], 'logo')) {
+         $options = str_replace("}", ',"opt_logo":"default"}', $data['options']);
+         $DB->update(
+               'glpi_plugin_notifications_notifications',
+               ['options' => $options],
+               ['WHERE' => ['id' => $data['id']]]);
+      }
    }
    return true;
 }
