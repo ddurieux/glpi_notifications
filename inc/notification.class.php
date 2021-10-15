@@ -47,7 +47,7 @@ if (!defined('GLPI_ROOT')) {
 
 class PluginNotificationsNotification extends CommonDBTM {
 
-   static $rightname = 'config';
+   static $rightname = 'entity';
 
 
    /**
@@ -1033,7 +1033,7 @@ class PluginNotificationsNotification extends CommonDBTM {
       $html = $this->notification_blue($this->fields['event'], $options);
 
       // search if notif exist
-      $notiftpl = current($nt->find("`name`='".$this->fields['name']."'"));
+      $notiftpl = current($nt->find(['name' => $this->fields['name']]));
       if (isset($notiftpl['id'])) {
          $nt_id = $notiftpl['id'];
       } else {
@@ -1053,7 +1053,7 @@ class PluginNotificationsNotification extends CommonDBTM {
           'content_text' => '',
           'content_html' => str_replace('[[replacebgcolor]]', $color, $html)
       ];
-      $notiftpltrans = current($ntt->find("`notificationtemplates_id`='".$nt_id."'"));
+      $notiftpltrans = current($ntt->find(['notificationtemplates_id' => $nt_id]));
       if (isset($notiftpltrans['id'])) {
          $input['id'] = $notiftpltrans['id'];
          $ntts_id = $ntt->update($input);

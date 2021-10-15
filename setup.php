@@ -41,7 +41,7 @@
  *
  */
 
-define ("PLUGIN_NOTIFICATIONS_VERSION", "9.4+1.0");
+define ("PLUGIN_NOTIFICATIONS_VERSION", "9.5+1.0");
 
 include_once(GLPI_ROOT."/inc/includes.php");
 
@@ -93,7 +93,7 @@ function plugin_version_notifications() {
       'author'         => '<a href="mailto:david@durieux.family">David DURIEUX</a>
                         & <a href="mailto:dcs.glpi@dcsit-group.com">DCS company</a>',
       'homepage'       =>'https://github.com/ddurieux/glpi_notifications',
-      'minGlpiVersion' => '9.4.0'
+      'minGlpiVersion' => '9.5.0'
    ];
 }
 

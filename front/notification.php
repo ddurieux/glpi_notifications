@@ -46,7 +46,6 @@ include ("../../../inc/includes.php");
 Html::header('Notifications', $_SERVER["PHP_SELF"], "config",
              "PluginNotificationsNotification", "notifications");
 
-
 Search::show('PluginNotificationsNotification');
 
 Html::footer();
