@@ -43,9 +43,6 @@
 
 define ("PLUGIN_NOTIFICATIONS_VERSION", "9.5+1.0");
 
-include_once(GLPI_ROOT."/inc/includes.php");
-
-
 /**
  * Init the hooks of Notifications
  *
